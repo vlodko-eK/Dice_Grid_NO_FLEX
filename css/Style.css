@@ -1,0 +1,84 @@
+/*ОБЩИЕ ЭЛЕМЕНТЫ */
+/* Точки на грянях кубика */
+.dot {    
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #000;
+}
+/* Грани кубика (общие для всех 6-ти граней параметры)*/
+.side {
+    display:grid;
+    justify-content:space-between;
+    width: 100px;
+    height: 100px;
+    border: 5px solid #000;
+    padding:10px;
+    box-sizing: border-box;
+    border-radius: 20px; 
+}
+/* Общий блок */
+ .container{
+    margin-top: 15vh;
+    display:grid;
+    gap:5%; /* Вертикальный отступ между гранями */
+}
+/* Ориентируем 3 основные блока .container-а */
+/* Верхний блок: грань с 6-ю точками */
+.block {
+    display:grid;
+    justify-content:center;
+}
+/* Средний блок с тремя горизонтально расположенными гранями */
+._2b {
+    grid-template-columns:repeat(3, auto);
+    gap:2%;
+}
+/* Нижний блок для 2-х вертикально сориентированных граней */
+._3b {
+    grid-row-gap:10%;
+}
+
+/* ОРИЕНТАЦИЯ ТОЧЕК НА ГРАНЯХ */
+/* Ориентируем точки на гранях с 4-мя и 6-ю точками */
+._4_6 {
+    grid-template-columns:repeat(2, auto);
+    align-content:space-between;
+}
+
+/* Ориентируем точки на грани с 2-мя точками */
+._2 {
+    grid-template-columns:repeat(2, auto);
+}
+._2 .dot:nth-child(2){
+    align-self:end;
+}
+
+/* Ориентируем точки на грнаи с 3-мя и 5-ю точками */
+._3_5 {
+    grid-template-columns:repeat(3, auto);
+}
+/* 3 точки */
+._3_5 .dot:nth-child(3){
+    align-self:end;
+}
+._3_5 .dot:nth-child(2){
+    align-self:center;
+}
+/* 5 точек */
+._3_5 div:nth-of-type(2n+1){
+    display:grid;
+    align-content:space-between;   
+}
+._3_5 div:nth-of-type(2n){ 
+      align-self:center;
+}
+/* Ориентируем точку на грани с одной точкой */
+._1 {
+    grid-template-columns:repeat(3, auto);
+    justify-content:center;   /* изменяем общий, для всех граней параметр */
+}
+._1 .dot {
+    align-self:center;
+}
